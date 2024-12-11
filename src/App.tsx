@@ -1,8 +1,17 @@
+import { Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <>
-      <h1>Proyecto Final</h1>
-    </>
+    <div className="flex min-h-screen flex-col">
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
   );
 }
 
