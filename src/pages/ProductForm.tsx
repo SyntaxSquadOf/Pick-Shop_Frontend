@@ -1,47 +1,74 @@
-export default function ProductForm() {
+import React from 'react';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import axios from 'axios';
+
+type FormValues = {
+  name: string;
+  price: number;
+  description: string;
+  stock: number;
+  imageURL: string;
+  category: string;
+};
+
+const ProductForm: React.FC = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = async data => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/productos', data, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+    }
+  };
+
   return (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-      <div className="w-full max-w-md rounded-md bg-zinc-800 p-10">
-        {error.map((error, index) => (
-          <div key={index} className="my-4 bg-red-600 p-2 font-bold text-white">
-            {error}
-          </div>
-        ))}
-        <form onSubmit={onSubmit}>
-          <label htmlFor="title">Title</label>
-          <input
-            id="title"
-            type="text"
-            placeholder="Title"
-            {...register("title")}
-            className="my-2 w-full rounded-md bg-zinc-600 px-4 py-2 text-white"
-            autoFocus
-          />
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            rows="3"
-            placeholder="Description"
-            {...register("description")}
-            className="my-2 w-full rounded-md bg-zinc-600 px-4 py-2 text-white"
-          ></textarea>
-
-          <label htmlFor="date">Date</label>
-          <input
-            id="date"
-            type="date"
-            {...register("date")}
-            className="my-2 w-full rounded-md bg-zinc-600 px-4 py-2 text-white"
-          />
-
-          <button
-            type="submit"
-            className="mt-3 w-full cursor-pointer bg-zinc-500 p-3 font-bold uppercase text-white transition-colors hover:bg-zinc-700"
-          >
-            Save
-          </button>
-        </form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label htmlFor="name">Nombre del Producto:</label>
+        <input id="name" {...register("name", { required: "Este campo es obligatorio" })} />
+        {errors.name && <p>{errors.name.message}</p>}
       </div>
-    </div>
+
+      <div>
+        <label htmlFor="price">Precio del Producto:</label>
+        <input type="number" id="price" {...register("price", { required: "Este campo es obligatorio" })} />
+        {errors.price && <p>{errors.price.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="description">Descripción del Producto:</label>
+        <textarea id="description" {...register("description", { required: "Este campo es obligatorio" })} />
+        {errors.description && <p>{errors.description.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="stock">Stock del Producto:</label>
+        <input type="number" id="stock" {...register("stock", { required: "Este campo es obligatorio" })} />
+        {errors.stock && <p>{errors.stock.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="imageURL">URL de la Imagen:</label>
+        <input id="imageURL" {...register("imageURL", { required: "Este campo es obligatorio" })} />
+        {errors.imageURL && <p>{errors.imageURL.message}</p>}
+      </div>
+
+      <div>
+        <label htmlFor="category">Categoría del Producto:</label>
+        <input id="category" {...register("category", { required: "Este campo es obligatorio" })} />
+        {errors.category && <p>{errors.category.message}</p>}
+      </div>
+
+      <button type="submit">Registrar Producto</button>
+    </form>
   );
 }
+
+export default ProductForm;
