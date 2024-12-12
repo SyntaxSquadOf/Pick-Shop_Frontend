@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import ProductForm from "./pages/ProductForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Users from "./pages/Users";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/add-product" element={<ProductForm />} />
           <Route path="/products/:id" element={<ProductForm />} />
-          <Route path="/users" element={<Products />} />
+          <Route path="/users" element={<Users />} />
           <Route path="/add-user" element={<ProductForm />} />
           <Route path="/users/:id" element={<ProductForm />} />
           <Route path="/stadistics" element={<Stadistics />} />
