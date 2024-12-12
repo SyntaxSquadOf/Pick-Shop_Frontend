@@ -8,6 +8,7 @@ import ProductForm from "./pages/ProductForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users";
+import Error404 from "./pages/Error404";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/*" element={<Error404 />} />
           <Route path="/pos" element={<Pos />} />
           <Route path="/products" element={<Products />} />
           <Route path="/add-product" element={<ProductForm />} />
