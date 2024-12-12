@@ -27,6 +27,7 @@ export default function CardProduct({
           className="mt-2 rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600"
           onClick={() => {
             toast.success(`Product ${product.name} to POS`);
+            onAddToCart(product);
           }}
         >
           Add to
