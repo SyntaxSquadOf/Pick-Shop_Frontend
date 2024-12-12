@@ -6,7 +6,8 @@ export default {
       colors: {
         "turquesa-profundo": "#20B2AA",
         "coral-neon": "#FF4B4B",
-        "grafito-suave": "36454F",
+        "grafito-suave": "#36454F",
+        "purpura-electrizante": "#8447FF",
       },
     },
   },
