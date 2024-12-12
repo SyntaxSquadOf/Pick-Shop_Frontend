@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Product } from "../types";
 import SideBar from "../components/SideBar";
 import { productos } from "../data/products";
-import { toast } from "react-toastify";
 import CardProduct from "../components/CardProduct";
 import { Link } from "react-router-dom";
 
