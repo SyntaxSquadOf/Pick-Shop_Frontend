@@ -3,6 +3,7 @@ import { GiPaperBagOpen } from "react-icons/gi";
 import { LuMonitorCheck } from "react-icons/lu";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import HomePageAnimation from "../components/HomeAnimation";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         className="relative h-[42rem] bg-cover bg-center"
         style={{ backgroundImage: "url(./public/img/homecover2.png)" }}
       >
+        
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-white">
           <h1 className="mb-4 text-5xl font-bold">Tu Minimarket a un Click</h1>
           <p className="text-xl">
@@ -23,9 +25,10 @@ export default function Home() {
           <button className="mt-3 rounded-2xl bg-grafito-suave px-4 py-2 font-bold text-white hover:bg-coral-neon">
             <Link to={"/pos"}>Empezar</Link>
           </button>
+          
         </div>
       </section>
-
+      <HomePageAnimation />
       {/* Icon Section */}
       <section className="bg-white py-32">
         <div className="container mx-auto px-4">
@@ -48,6 +51,7 @@ export default function Home() {
               <p className="text-center text-gray-600">
                 tu inventario y tus clientes en un solo lugar
               </p>
+              
             </div>
             <div className="flex flex-col items-center">
               <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full text-white">
@@ -57,7 +61,8 @@ export default function Home() {
               <p className="text-center text-gray-600">
                 sistema de acumulación de puntos
               </p>
-            </div>
+              
+            </div>1
           </div>
         </div>
       </section>
