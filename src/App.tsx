@@ -13,7 +13,7 @@ import Error404 from "./pages/Error404";
 function App() {
   return (
     <div className="flex min-h-screen flex-col">
-      <div>
+      <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/*" element={<Error404 />} />

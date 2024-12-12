@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="relative h-[34rem] bg-cover bg-center"
+        className="relative h-[42rem] bg-cover bg-center"
         style={{ backgroundImage: "url(./public/img/homecover2.png)" }}
       >
         <div className="relative z-10 flex h-full flex-col items-center justify-center text-white">
