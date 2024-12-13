@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Stadistics from "./pages/Stadistics";
 import { Pos } from "./pages/Pos";
 import Products from "./pages/Products";
-import ProductForm from "./pages/ProductForm";
+// import ProductForm from "./pages/ProductForm";
+// import UserForm from "./pages/UserForm";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Users from "./pages/Users";
@@ -19,11 +20,11 @@ function App() {
           <Route path="/*" element={<Error404 />} />
           <Route path="/pos" element={<Pos />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/add-product" element={<ProductForm />} />
-          <Route path="/products/:id" element={<ProductForm />} />
+          {/* <Route path="/add-product" element={<ProductForm />} /> */}
+          {/* <Route path="/products/:id" element={<ProductForm />} /> */}
           <Route path="/users" element={<Users />} />
-          <Route path="/add-user" element={<ProductForm />} />
-          <Route path="/users/:id" element={<ProductForm />} />
+          {/* <Route path="/add-user" element={<UserForm />} /> */}
+          {/* <Route path="/users/:id" element={<UserForm />} /> */}
           <Route path="/stadistics" element={<Stadistics />} />
         </Routes>
       </div>

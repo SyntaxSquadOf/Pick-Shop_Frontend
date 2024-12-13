@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeftIcon, PlusIcon, EditIcon, TrashIcon } from "lucide-react";
+import { ArrowLeftIcon, EditIcon, TrashIcon } from "lucide-react";
 import useFetchUsers from "../hooks/useFetchUsers";
 import ShowModalUser from "./showModalUser";
 
