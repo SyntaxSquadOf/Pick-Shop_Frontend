@@ -11,7 +11,7 @@ export const Pos = () => {
   const [orden, setOrden] = useState<Order[]>([]);
 
   if (loading) {
-    return <p>Loading recipes...</p>;
+    return <p>Cargando Productos...</p>;
   }
 
   // useEffect(() => {
@@ -49,7 +49,7 @@ export const Pos = () => {
   return (
     <div className="flex max-md:flex-col">
       <div className="flex-1 p-6">
-        <div className="flex justify-between mt-12 mb-8 mr-16">
+        <div className="mb-8 mr-16 mt-12 flex justify-between">
           <h1 className="mb-6 text-2xl font-bold">Productos</h1>
           <div>
             <Link
@@ -72,7 +72,7 @@ export const Pos = () => {
             </Link>
           </div>
         </div>
-        <div className="  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <CardProduct
               key={product._id}
