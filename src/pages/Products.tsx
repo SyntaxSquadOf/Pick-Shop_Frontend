@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowLeftIcon, PlusIcon, EditIcon, TrashIcon } from "lucide-react";
+import { ArrowLeftIcon, EditIcon, TrashIcon } from "lucide-react";
 import useFetchProduct from "../hooks/useFetchProduct";
+import ShowModalProduct from "./showModalProduct";
 
 const ProductTable = () => {
   const { products, loading } = useFetchProduct();
@@ -17,13 +18,15 @@ const ProductTable = () => {
         >
           <ArrowLeftIcon size={32} />
         </Link>
-        <Link
+
+        <ShowModalProduct />
+        {/* <Link
           to="/add-product"
           className="rounded bg-turquesa-profundo px-5 py-2 text-white hover:bg-grafito-suave"
         >
           <PlusIcon size={18} className="mb-1 mr-2 inline-block" />
           Añadir Producto
-        </Link>
+        </Link> */}
       </div>
       <table className="w-full border-collapse">
         <thead>
