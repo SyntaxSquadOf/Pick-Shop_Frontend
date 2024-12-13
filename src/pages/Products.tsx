@@ -7,7 +7,7 @@ const ProductTable = () => {
   const { products, loading } = useFetchProduct();
 
   if (loading) {
-    return <p>Loading recipes...</p>;
+    return <p>Cargando productos...</p>;
   }
   return (
     <div className="m-16">
