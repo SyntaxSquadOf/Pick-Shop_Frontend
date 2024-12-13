@@ -49,7 +49,7 @@ export const Pos = () => {
   return (
     <div className="flex max-md:flex-col">
       <div className="flex-1 p-6">
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-12 mb-8 mr-16">
           <h1 className="mb-6 text-2xl font-bold">Productos</h1>
           <div>
             <Link
@@ -72,7 +72,7 @@ export const Pos = () => {
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+        <div className="mr-52  grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product) => (
             <CardProduct
               key={product._id}
