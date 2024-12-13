@@ -109,7 +109,7 @@ export default function SideBar({
             </option>
           ))}
         </select>
-        <button className="bg-turquesa-profundo rounded-xl p-1">Agregar</button>
+        <button className="bg-turquesa-profundo rounded-xl p-1 hover:bg-[#167d77]">Agregar</button>
       </div>
       <div className="h-full">
         <div className="mt-5 space-y-3">
