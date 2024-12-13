@@ -1,5 +1,8 @@
+export type Order = Pick<Product, "_id" | "name" | "price"> & {
+  quantity: number;
+};
 export type Product = {
-  id: number;
+  _id: string;
   name: string;
   price: number;
   stock: number;
@@ -7,7 +10,7 @@ export type Product = {
 };
 
 export type User = {
-  id: string;
+  _id: string;
   name: string;
   lastname: string;
   phone_number: string;
