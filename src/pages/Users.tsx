@@ -48,14 +48,14 @@ const CustomerTable = () => {
               <td className="p-2">{customer.phone_number}</td>
               <td className="p-2">{customer.email}</td>
               <td className="p-2">{customer.address}</td>
-              <td className="ml-2 mt-8 flex justify-start space-x-4 p-2">
+              <td className="ml-2 mt-4 flex justify-start space-x-4 p-2">
                 <Link
                   to={`/edit-customer/${customer._id}`}
-                  className="text-purpura-electrizante hover:text-blue-700"
+                  className="text-purpura-electrizante hover:text-blue-700 mb-4"
                 >
                   <EditIcon size={22} />
                 </Link>
-                <button className="text-coral-neon hover:text-red-700">
+                <button className="text-coral-neon hover:text-red-700 mb-4">
                   <TrashIcon size={22} />
                 </button>
               </td>
