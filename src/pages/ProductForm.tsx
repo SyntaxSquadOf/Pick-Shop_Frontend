@@ -29,46 +29,52 @@ const ProductForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="name">Nombre del Producto:</label>
-        <input id="name" {...register("name", { required: "Este campo es obligatorio" })} />
-        {errors.name && <p>{errors.name.message}</p>}
-      </div>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6"
+    >
+      <h2 className="text-2xl font-bold text-center text-grafito-suave">Producto</h2>
 
-      <div>
-        <label htmlFor="price">Precio del Producto:</label>
-        <input type="number" id="price" {...register("price", { required: "Este campo es obligatorio" })} />
-        {errors.price && <p>{errors.price.message}</p>}
-      </div>
+      {[
+        { id: "name", label: "Nombre del Producto", type: "text" },
+        { id: "price", label: "Precio del Producto", type: "number" },
+        { id: "description", label: "Descripción del Producto", type: "textarea" },
+        { id: "stock", label: "Stock del Producto", type: "number" },
+        { id: "imageURL", label: "URL de la Imagen", type: "text" },
+        { id: "category", label: "Categoría del Producto", type: "text" },
+      ].map(({ id, label, type }) => (
+        <div key={id} className="flex flex-col">
+          <label htmlFor={id} className="mb-2 text-sm font-bold text-gray-600">
+            {label}:
+          </label>
+          {type === "textarea" ? (
+            <textarea
+              id={id}
+              {...register(id as keyof FormValues, { required: `Este campo es obligatorio` })}
+              className="rounded-lg border-gray-300 p-3 text-sm text-gray-700 focus:border-coral-neon focus:ring-coral-neon"
+            />
+          ) : (
+            <input
+              id={id}
+              type={type}
+              {...register(id as keyof FormValues, { required: `Este campo es obligatorio` })}
+              className="rounded-lg border border-gray-300 p-3 text-sm text-gray-700 focus:border-coral-neon focus:ring-coral-neon"
+            />
+          )}
+          {errors[id as keyof FormValues] && (
+            <p className="mt-1 text-sm text-red-500">{errors[id as keyof FormValues]?.message}</p>
+          )}
+        </div>
+      ))}
 
-      <div>
-        <label htmlFor="description">Descripción del Producto:</label>
-        <textarea id="description" {...register("description", { required: "Este campo es obligatorio" })} />
-        {errors.description && <p>{errors.description.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="stock">Stock del Producto:</label>
-        <input type="number" id="stock" {...register("stock", { required: "Este campo es obligatorio" })} />
-        {errors.stock && <p>{errors.stock.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="imageURL">URL de la Imagen:</label>
-        <input id="imageURL" {...register("imageURL", { required: "Este campo es obligatorio" })} />
-        {errors.imageURL && <p>{errors.imageURL.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="category">Categoría del Producto:</label>
-        <input id="category" {...register("category", { required: "Este campo es obligatorio" })} />
-        {errors.category && <p>{errors.category.message}</p>}
-      </div>
-
-      <button type="submit">Registrar Producto</button>
+      <button
+        type="submit"
+        className="w-full rounded-2xl bg-grafito-suave py-2 text-lg font-bold text-white hover:bg-turquesa-profundo transition duration-300"
+      >
+        Añadir al Inventario
+      </button>
     </form>
   );
-}
+};
 
 export default ProductForm;

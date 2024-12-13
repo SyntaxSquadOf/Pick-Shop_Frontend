@@ -158,17 +158,17 @@ export default function SideBar({
           )}
         </div>
       </div>
-      <div>
-        <div className="mt-10 space-y-3 text-center">
+      <div className="pt-10">
+        <div className="mt-10space-y-3 text-center">
           <button
-            className="w-[300px] rounded-lg bg-turquesa-profundo px-4 py-2 font-bold uppercase text-white hover:bg-[#167d77] disabled:cursor-not-allowed"
+            className="mb-4 w-[300px] rounded-lg bg-turquesa-profundo px-4 py-2 font-bold uppercase text-white hover:bg-[#167d77] disabled:cursor-not-allowed"
             disabled={!isValidOrden}
             onClick={handleSell}
           >
             Vender <span>{formatCurrency(total)} total</span>
           </button>
           <button
-            className="w-[300px] bg-coral-neon rounded-lg px-4 py-2 font-bold uppercase text-white hover:bg-[#cc3c3c] disabled:cursor-not-allowed "
+            className="mb-8 w-[300px] bg-coral-neon rounded-lg px-4 py-2 font-bold uppercase text-white hover:bg-[#cc3c3c] disabled:cursor-not-allowed "
             disabled={!isValidOrden}
             onClick={handleCancelOrder}
           >
