@@ -28,40 +28,43 @@ const UserForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label htmlFor="name">Nombre:</label>
-        <input id="name" {...register("name", { required: "Este campo es obligatorio" })} />
-        {errors.name && <p>{errors.name.message}</p>}
-      </div>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6"
+    >
+      <h2 className="text-2xl font-bold text-center text-grafito-suave">Usuario</h2>
 
-      <div>
-        <label htmlFor="lastname">Apellido:</label>
-        <input id="lastname" {...register("lastname", { required: "Este campo es obligatorio" })} />
-        {errors.lastname && <p>{errors.lastname.message}</p>}
-      </div>
+      {[
+        { id: "name", label: "Nombre", type: "text" },
+        { id: "lastname", label: "Apellido", type: "text" },
+        { id: "phone_number", label: "Número de Teléfono", type: "text" },
+        { id: "email", label: "Correo Electrónico", type: "email" },
+        { id: "address", label: "Dirección", type: "text" },
+      ].map(({ id, label, type }) => (
+        <div key={id} className="flex flex-col">
+          <label htmlFor={id} className="mb-2 text-sm font-bold text-gray-600">
+            {label}:
+          </label>
+          <input
+            id={id}
+            type={type}
+            {...register(id as keyof FormValues, { required: `Este campo es obligatorio` })}
+            className="rounded-lg border border-gray-300 p-3 text-sm text-gray-700 focus:border-coral-neon focus:ring-coral-neon"
+          />
+          {errors[id as keyof FormValues] && (
+            <p className="mt-1 text-sm text-red-500">{errors[id as keyof FormValues]?.message}</p>
+          )}
+        </div>
+      ))}
 
-      <div>
-        <label htmlFor="phone_number">Número de Teléfono:</label>
-        <input id="phone_number" {...register("phone_number", { required: "Este campo es obligatorio" })} />
-        {errors.phone_number && <p>{errors.phone_number.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="email">Correo Electrónico:</label>
-        <input id="email" type="email" {...register("email", { required: "Este campo es obligatorio" })} />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
-
-      <div>
-        <label htmlFor="address">Dirección:</label>
-        <input id="address" {...register("address", { required: "Este campo es obligatorio" })} />
-        {errors.address && <p>{errors.address.message}</p>}
-      </div>
-
-      <button type="submit">Registrar Usuario</button>
+      <button
+        type="submit"
+        className="w-full rounded-2xl bg-grafito-suave py-2 text-lg font-bold text-white hover:bg-turquesa-profundo transition duration-300"
+      >
+        Registrar Usuario
+      </button>
     </form>
   );
-}
+};
 
 export default UserForm;

@@ -24,7 +24,7 @@ export default function ShowModalUser() {
     <>
       <div className="bottom-5 right-5 flex items-center justify-center">
         <button type="button" onClick={handleOpen}>
-          <PlusCircleIcon className="h-16 w-16 rounded-full text-blue-600" />
+          <PlusCircleIcon className="h-16 w-16 rounded-full text-turquesa-profundo" />
         </button>
       </div>
 
