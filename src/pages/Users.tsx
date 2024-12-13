@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, PlusIcon, EditIcon, TrashIcon } from "lucide-react";
 import useFetchUsers from "../hooks/useFetchUsers";
+import ShowModalUser from "./showModalUser";
 
 const CustomerTable = () => {
   const { users, loading } = useFetchUsers();
@@ -17,13 +18,14 @@ const CustomerTable = () => {
         >
           <ArrowLeftIcon size={32} />
         </Link>
-        <Link
+        <ShowModalUser />
+        {/* <Link
           to="/add-user"
           className="rounded bg-turquesa-profundo px-5 py-2 text-white hover:bg-grafito-suave"
         >
           <PlusIcon size={18} className="mb-1 mr-2 inline-block" />
           Añadir Cliente
-        </Link>
+        </Link> */}
       </div>
       <table className="w-full border-collapse">
         <thead>
