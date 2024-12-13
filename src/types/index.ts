@@ -1,3 +1,6 @@
+export type Order = Product & {
+  quantity: number;
+};
 export type Product = {
   _id: string;
   name: string;

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="h-auto bg-turquesa-profundo py-8 text-white">
-      <div className="container mx-auto grid gap-6 px-4 md:grid-cols-3">
+    <footer className="w-full bg-turquesa-profundo py-8 text-white">
+      <div className="mx-auto grid w-full gap-6 px-4 md:grid-cols-3">
         {/* Páginas */}
         <div>
           <h4 className="mb-3 font-bold">Páginas</h4>
@@ -65,7 +65,7 @@ export default function Footer() {
           <img
             src="../../public/img/syntax-squad-high-resolution-logo-transparent.png"
             alt="logo equipo"
-            className="ml-8 mr-5 h-4 w-auto object-contain"
+            className="h-6 w-auto object-contain"
           />
         </div>
       </div>

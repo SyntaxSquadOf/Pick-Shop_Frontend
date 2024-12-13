@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { Product } from "../types";
+import { Order, Product } from "../types";
 import SideBar from "../components/SideBar";
 import { productos } from "../data/products";
 import CardProduct from "../components/CardProduct";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Pos = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [orden, setOrden] = useState<Order[]>([]);
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
@@ -20,7 +22,25 @@ export const Pos = () => {
   //   fetchProducts();
   // }, []);
 
-  const onAddToCart = () => {};
+  const onAddToCart = (product: Product) => {
+    const itemExist = orden.find((item) => item._id === product._id);
+    if (itemExist) {
+      const newOrder = orden.map((item) =>
+        item._id === product._id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item,
+      );
+      setOrden(newOrder);
+    } else {
+      setOrden([...orden, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const onRemoveFromCart = (_id: string) => {
+    const removeItem = orden.filter((item) => item._id !== _id);
+    toast.error(`Product deleting`);
+    setOrden(removeItem);
+  };
 
   useEffect(() => {
     setProducts(productos);
@@ -62,7 +82,11 @@ export const Pos = () => {
           ))}
         </div>
       </div>
-      <SideBar />
+      <SideBar
+        orden={orden}
+        onRemoveFromCart={onRemoveFromCart}
+        setOrden={setOrden}
+      />
     </div>
   );
 };

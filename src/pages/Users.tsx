@@ -13,7 +13,7 @@ const CustomerTable = () => {
           <ArrowLeftIcon size={32} />
         </Link>
         <Link
-          to="/add-customer"
+          to="/add-user"
           className="rounded bg-turquesa-profundo px-5 py-2 text-white hover:bg-grafito-suave"
         >
           <PlusIcon size={18} className="mb-1 mr-2 inline-block" />
