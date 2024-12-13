@@ -7,7 +7,7 @@ const CustomerTable = () => {
   const { users, loading } = useFetchUsers();
 
   if (loading) {
-    return <p>Loading recipes...</p>;
+    return <p>Cargando Usuarios...</p>;
   }
   return (
     <div className="m-16">
@@ -51,11 +51,11 @@ const CustomerTable = () => {
               <td className="ml-2 mt-4 flex justify-start space-x-4 p-2">
                 <Link
                   to={`/edit-customer/${customer._id}`}
-                  className="text-purpura-electrizante hover:text-blue-700 mb-4"
+                  className="mb-4 text-purpura-electrizante hover:text-blue-700"
                 >
                   <EditIcon size={22} />
                 </Link>
-                <button className="text-coral-neon hover:text-red-700 mb-4">
+                <button className="mb-4 text-coral-neon hover:text-red-700">
                   <TrashIcon size={22} />
                 </button>
               </td>

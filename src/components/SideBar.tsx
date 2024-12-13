@@ -4,7 +4,7 @@ import { Order } from "../types";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import useFetchUsers from "../hooks/useFetchUsers";
-import apiClient from "../utils/api";
+//import apiClient from "../utils/api";
 
 type SideBarProps = {
   orden: Order[];
@@ -98,7 +98,7 @@ export default function SideBar({
         <p className="pt-1">Clientes:</p>
         <select
           id="client"
-          className="mx-2 flex-1 rounded-xl bg-slate-400 p-1 h-8"
+          className="mx-2 h-8 flex-1 rounded-xl bg-slate-400 p-1"
           onChange={handleFilter}
         >
           <option value="">Seleccionar Cliente</option>
@@ -109,7 +109,9 @@ export default function SideBar({
             </option>
           ))}
         </select>
-        <button className="bg-turquesa-profundo rounded-xl px-3 font-semibold py-1 hover:bg-[#167d77]">+</button>
+        <button className="rounded-xl bg-turquesa-profundo px-3 py-1 font-semibold hover:bg-[#167d77]">
+          +
+        </button>
       </div>
       <div className="h-full">
         <div className="mt-5 space-y-3">
@@ -168,7 +170,7 @@ export default function SideBar({
             Vender <span>{formatCurrency(total)} total</span>
           </button>
           <button
-            className="mb-8 w-[300px] bg-coral-neon rounded-lg px-4 py-2 font-bold uppercase text-white hover:bg-[#cc3c3c] disabled:cursor-not-allowed "
+            className="mb-8 w-[300px] rounded-lg bg-coral-neon px-4 py-2 font-bold uppercase text-white hover:bg-[#cc3c3c] disabled:cursor-not-allowed"
             disabled={!isValidOrden}
             onClick={handleCancelOrder}
           >

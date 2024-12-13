@@ -20,6 +20,10 @@ const ProductForm: React.FC = () => {
   } = useForm<FormValues>();
   const { categoryProducts, loading } = useFetchCategoryProduct();
 
+  if (loading) {
+    return <p>Loading Categories...</p>;
+  }
+
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
       const response = await apiClient.post("/api/productos/", data, {
