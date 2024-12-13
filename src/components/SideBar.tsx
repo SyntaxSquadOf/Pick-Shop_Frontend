@@ -89,16 +89,16 @@ export default function SideBar({
   };
 
   return (
-    <div className="flex min-h-screen w-auto flex-col bg-gray-800 p-6 text-white max-md:h-full lg:w-[38rem]">
+    <div className="flex min-h-screen w-auto flex-col bg-grafito-suave p-6 text-white max-md:h-full lg:w-[38rem]">
       <div>
-        <h2 className="mb-6 text-2xl font-bold">POS System</h2>
+        <h2 className="mb-6 text-2xl font-bold">Sistema POS</h2>
       </div>
       <div></div>
       <div className="mb-5 flex">
         <p className="pt-1">Clientes:</p>
         <select
           id="client"
-          className="mx-2 flex-1 rounded-2xl bg-slate-300 p-1"
+          className="mx-2 flex-1 rounded-xl bg-slate-400 p-1 h-8"
           onChange={handleFilter}
         >
           <option value="">Seleccionar Cliente</option>
@@ -109,7 +109,7 @@ export default function SideBar({
             </option>
           ))}
         </select>
-        <button>Add</button>
+        <button className="bg-turquesa-profundo rounded-xl p-1">Agregar</button>
       </div>
       <div className="h-full">
         <div className="mt-5 space-y-3">
@@ -152,23 +152,23 @@ export default function SideBar({
               </div>
             ))
           ) : (
-            <p className="center text-center text-2xl font-extrabold">
+            <p className="center text-center text-2xl font-bold">
               No hay productos en la orden
             </p>
           )}
         </div>
       </div>
       <div>
-        <div className="mt-10 space-y-3">
+        <div className="mt-10 space-y-3 text-center">
           <button
-            className="w-full rounded bg-green-500 px-4 py-2 font-bold uppercase text-white hover:bg-green-600 disabled:cursor-not-allowed disabled:opacity-15"
+            className="w-[300px] rounded-lg bg-turquesa-profundo px-4 py-2 font-bold uppercase text-white hover:bg-[#167d77] disabled:cursor-not-allowed"
             disabled={!isValidOrden}
             onClick={handleSell}
           >
             Vender <span>{formatCurrency(total)} total</span>
           </button>
           <button
-            className="w-full rounded bg-red-500 px-4 py-2 font-bold uppercase text-white hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-15"
+            className="w-[300px] bg-coral-neon rounded-lg px-4 py-2 font-bold uppercase text-white hover:bg-[#cc3c3c] disabled:cursor-not-allowed "
             disabled={!isValidOrden}
             onClick={handleCancelOrder}
           >

@@ -50,23 +50,23 @@ export const Pos = () => {
     <div className="flex max-md:flex-col">
       <div className="flex-1 p-6">
         <div className="flex justify-between">
-          <h1 className="mb-6 text-2xl font-bold">Products</h1>
+          <h1 className="mb-6 text-2xl font-bold">Productos</h1>
           <div>
             <Link
               to={"/users"}
-              className="mx-4 rounded-3xl bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+              className="mx-4 rounded-xl bg-turquesa-profundo px-4 py-2 text-white hover:bg-[#167d77]"
             >
               Usuarios
             </Link>
             <Link
               to={"/products"}
-              className="mx-4 rounded-3xl bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+              className="mx-4 rounded-xl bg-turquesa-profundo px-4 py-2 text-white hover:bg-[#167d77]"
             >
               Productos
             </Link>
             <Link
               to={"/stadistics"}
-              className="mx-4 rounded-3xl bg-green-500 px-4 py-2 text-white hover:bg-green-600"
+              className="mx-4 rounded-xl bg-turquesa-profundo px-4 py-2 text-white hover:bg-[#167d77]"
             >
               Estadísticas
             </Link>
