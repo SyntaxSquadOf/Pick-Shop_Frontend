@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const HomePageAnimation = () => {
   return (
-    <div className="absolute top-0 left-0 h-full w-full overflow-hidden">
+    <div className="absolute left-0 top-0 h-full w-full overflow-hidden">
       {/* Segunda manzana */}
       <motion.div
         initial={{ x: 300, y: 300, rotate: 20 }}
@@ -16,9 +16,9 @@ const HomePageAnimation = () => {
             repeatType: "loop",
           },
         }}
-        className="absolute w-16 h-16 z-50"
+        className="absolute z-50 h-16 w-16"
       >
-        <img src="../../public/img/apple.png" alt="Apple" />
+        <img src="/img/apple.png" alt="Apple" />
       </motion.div>
 
       <motion.div
@@ -33,9 +33,9 @@ const HomePageAnimation = () => {
             repeatType: "loop",
           },
         }}
-        className="absolute w-16 h-16 z-50"
+        className="absolute z-50 h-16 w-16"
       >
-        <img src="../../public/img/apple.png" alt="Apple" />
+        <img src="/img/apple.png" alt="Apple" />
       </motion.div>
     </div>
   );

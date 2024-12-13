@@ -63,7 +63,7 @@ export default function Footer() {
         </p>
         <div className="absolute bottom-0 right-0 p-2">
           <img
-            src="../../public/img/syntax-squad-high-resolution-logo-transparent.png"
+            src="/img/syntax-squad-high-resolution-logo-transparent.png"
             alt="logo equipo"
             className="h-6 w-auto object-contain"
           />
