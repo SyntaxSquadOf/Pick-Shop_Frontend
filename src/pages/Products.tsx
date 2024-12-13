@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, PlusIcon, EditIcon, TrashIcon } from "lucide-react";
-import { productos } from "../data/products";
+import useFetchProduct from "../hooks/useFetchProduct";
 
 const ProductTable = () => {
+  const { products, loading } = useFetchProduct();
+
+  if (loading) {
+    return <p>Loading recipes...</p>;
+  }
   return (
     <div className="m-16">
       <div className="mb-16 flex justify-between">
@@ -32,7 +37,7 @@ const ProductTable = () => {
           </tr>
         </thead>
         <tbody>
-          {productos.map((producto) => (
+          {products.map((producto) => (
             <tr key={producto._id} className="border-b">
               <td className="p-2">{producto._id}</td>
               <td className="p-2">

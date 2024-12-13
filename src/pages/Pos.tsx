@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Order, Product } from "../types";
 import SideBar from "../components/SideBar";
-import { productos } from "../data/products";
 import CardProduct from "../components/CardProduct";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import useFetchProduct from "../hooks/useFetchProduct";
 
 export const Pos = () => {
-  const [products, setProducts] = useState<Product[]>([]);
+  const { products, loading } = useFetchProduct();
   const [orden, setOrden] = useState<Order[]>([]);
+
+  if (loading) {
+    return <p>Loading recipes...</p>;
+  }
 
   // useEffect(() => {
   //   const fetchProducts = async () => {
@@ -41,10 +45,6 @@ export const Pos = () => {
     toast.error(`Product deleting`);
     setOrden(removeItem);
   };
-
-  useEffect(() => {
-    setProducts(productos);
-  }, []);
 
   return (
     <div className="flex max-md:flex-col">

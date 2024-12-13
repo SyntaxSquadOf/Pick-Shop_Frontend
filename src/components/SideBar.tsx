@@ -1,9 +1,10 @@
 import { useMemo } from "react";
-import { user } from "../data/user";
 import { formatCurrency } from "../helpers";
 import { Order } from "../types";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
+import useFetchUsers from "../hooks/useFetchUsers";
+import apiClient from "../utils/api";
 
 type SideBarProps = {
   orden: Order[];
@@ -16,7 +17,20 @@ export default function SideBar({
   onRemoveFromCart,
   setOrden,
 }: SideBarProps) {
-  const handleFilter = (event) => {
+  const { users, loading } = useFetchUsers();
+
+  const isValidOrden = useMemo(() => {
+    return orden.length > 0;
+  }, [orden]);
+
+  const total = useMemo(() => {
+    return orden.reduce((total, item) => total + item.price * item.quantity, 0);
+  }, [orden]);
+
+  if (loading) {
+    return <p>Loading Users...</p>;
+  }
+  const handleFilter = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     console.log(event.target.value);
   };
   const MySwal = withReactContent(Swal);
@@ -38,15 +52,19 @@ export default function SideBar({
     });
   };
 
-  const isValidOrden = useMemo(() => {
-    return orden.length > 0;
-  }, [orden]);
+  const handleSell = async () => {
+    try {
+      // const response = await apiClient.post("/api/cart/", {
+      //   products: orden,
+      //   total,
+      // });
 
-  const total = useMemo(() => {
-    return orden.reduce((total, item) => total + item.price * item.quantity, 0);
-  }, [orden]);
+      // console.log("Response:", response.data);
+      console.log("Orden:", orden);
+    } catch (error) {
+      console.error("Error al vender:", error);
+    }
 
-  const handleSell = () => {
     let timerInterval: number;
     MySwal.fire({
       icon: "success",
@@ -85,7 +103,7 @@ export default function SideBar({
         >
           <option value="">Seleccionar Cliente</option>
           <option value="cliente-Final">Consumidor Final</option>
-          {user.map((customer) => (
+          {users.map((customer) => (
             <option key={customer._id} value={customer.name}>
               {customer.name}
             </option>

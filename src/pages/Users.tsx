@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
 import { ArrowLeftIcon, PlusIcon, EditIcon, TrashIcon } from "lucide-react";
-import { user } from "../data/user";
+import useFetchUsers from "../hooks/useFetchUsers";
 
 const CustomerTable = () => {
+  const { users, loading } = useFetchUsers();
+
+  if (loading) {
+    return <p>Loading recipes...</p>;
+  }
   return (
     <div className="m-16">
       <div className="mb-16 flex justify-between">
@@ -33,7 +38,7 @@ const CustomerTable = () => {
           </tr>
         </thead>
         <tbody>
-          {user.map((customer) => (
+          {users.map((customer) => (
             <tr key={customer._id} className="border-b">
               <td className="p-2">{customer._id}</td>
               <td className="p-2">{customer.name}</td>

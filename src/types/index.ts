@@ -1,4 +1,4 @@
-export type Order = Product & {
+export type Order = Pick<Product, "_id" | "name" | "price"> & {
   quantity: number;
 };
 export type Product = {
