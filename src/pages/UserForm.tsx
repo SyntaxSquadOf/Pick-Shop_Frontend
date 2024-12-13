@@ -19,11 +19,7 @@ const UserForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     try {
-      const response = await apiClient.post("/api/users/", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await apiClient.post("/api/users/", data);
 
       console.log(response.data);
     } catch (error) {

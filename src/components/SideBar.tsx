@@ -4,6 +4,7 @@ import { Order } from "../types";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
 import useFetchUsers from "../hooks/useFetchUsers";
+import { jsPDF } from "jspdf";
 //import apiClient from "../utils/api";
 
 type SideBarProps = {
@@ -64,6 +65,28 @@ export default function SideBar({
     } catch (error) {
       console.error("Error al vender:", error);
     }
+
+    const doc = new jsPDF();
+
+    doc.text("Orden de Compra", 80, 10);
+    doc.text("Productos", 10, 20);
+    doc.text("Cantidad", 70, 20);
+    doc.text("Precio", 100, 20);
+    doc.text("Total", 130, 20);
+    orden.forEach((item, index) => {
+      doc.text(item.name, 10, 30 + index * 10);
+      doc.text(item.quantity.toString(), 70, 30 + index * 10);
+      doc.text(formatCurrency(item.price), 100, 30 + index * 10);
+      doc.text(
+        formatCurrency(item.price * item.quantity),
+        130,
+        30 + index * 10,
+      );
+    });
+    doc.text("Total:", 10, 30 + orden.length * 10);
+    doc.text(formatCurrency(total), 130, 30 + orden.length * 10);
+
+    doc.save("orden.pdf");
 
     let timerInterval: number;
     MySwal.fire({
