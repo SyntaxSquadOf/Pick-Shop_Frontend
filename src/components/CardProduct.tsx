@@ -16,7 +16,7 @@ export default function CardProduct({
       className=" mb-10 w-64 md:w-50 sm:w-42 overflow-hidden rounded-md bg-white shadow-md"
     >
       <img
-        src={product.image}
+        src="/img/chipsdepapa.png"
         alt={product.name}
         className="h-40 w-full object-cover"
       />
